@@ -1,0 +1,36 @@
+\chapter{Stapler}
+\label{sec: Stapler}
+
+Unabhängig von der Navigation muss der Stapler verschiedene Aktionen ausführen können, welche wiederum Sensorik benötigen. Die Aufgaben, welcher der Stapler zu erfüllen hat, sind im folgenden aufgezählt:
+\begin{itemize}
+	\item Fortbewegung
+	\item Heben von Lasten
+	\item Lenken
+\end{itemize}	
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.50\textwidth]{Stapler Sensorpositionen.png}
+	\caption{Stapler Sensorpositionen}
+	\label{fig: Stapler Sensorpositionen}
+\end{figure}
+
+\section{Fortbewegung}\label{sec:Fortbewegung}
+Der Stapler hat 4 Räder, welche auf 2 mechanischen Achsen montiert sind (vorne und hinten). Dabei wird Achse 1 durch einen Motor angetrieben und Achse 2 läuft mit Achse 1 mit. Um dies sensorisch abzudecken, wird auf der angetriebenen Achse ein Inkrementalgeber verbaut. Dieser dient einerseits zur Überwachung und Regelung der Geschwindigkeit und andererseits für die odometrische Bestimmung der Pose. Die Geberdaten werden direkt an die zentrale Steuerungseinheit des Stapler und an die Antriebe übertragen. Optional kann auf der nicht-angetriebenen Achse ein zusätzlicher Inkrementalgeber montiert werden. Mit der zusätzlichen Information der Geschwindigkeit des 2 Inkrementalgeber kann eine Rutsch oder Schleifbewegung detektiert werden. Mit dieser Information kann die Pose der odometrischen Berechnung korrigiert werden.
+
+\section{Heben von Lasten}\label{sec:Heben von Lasten}
+Nimmt der Stapler eine Last auf, so verändert sich der Schwerpunkt des gesamten Fahrzeugs, was im schlimmsten Fall zum Kippen führen kann. Aus diesem Grund ist die Längsachse kippbar gelagert, wodurch der Schwerpunkt wieder richtung Fahrzeugmitte korrigiert werden kann. Der Stapler ist konstruktiv so konstriert, dass mit einem konstantem Kippwinkel jede Last befördert und gehobten werden kann. Damit ist nur eine, immer gleichbleibende Kippbewegung auszuführen und die aktuelle Kipplage mithilfe von Endschaltern zu erfassen. Um die Kipplage sicher zu erfassen, werden pro Endlage 2 Sensoren verbaut. Die 2 Position werden Transport- und Ladeposition genannt.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.50\textwidth]{Stapler Kippbewegung.png}
+	\caption{Stapler Kippbewegung}
+	\label{fig: Stapler Kippbewegung}
+\end{figure}
+
+\section{Lenken}\label{sec:Lenken}
+Durch Neigen der Längsachse kann der Stapler in verschiedene Richtungen fahren und dadurch Lenkbewegungen ausführen. Durch den Aufbau des Staplers ist eine Drehung nur in Verbindung mit einer Fortbewegung möglich. Die Neigung der Längsachse erfolgt durch einen Motor, welcher eine vorgegebene Winkel- Sollposition anfährt. Um die aktuelle Lage der Achse zu erfassen, wird ein Absolutwertgeber am Drehgelenk angebracht. Durch den Einsatz eines Absolutwertgebers kann die Istposition des Sensors nicht verschwinden und beim Einschalten des Staplers muss die aktuelle Position nicht referenziert werden.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.50\textwidth]{Stapler Lenkbewegung.png}
+	\caption{Stapler Lenkbewegung}
+	\label{fig: Stapler Lenkbewegung}
+\end{figure}
